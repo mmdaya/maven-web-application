@@ -14,9 +14,13 @@ pipeline {
         }
             stage('Deploy_Package') {
                 steps {
-                    script{
-                        deploy adapters: [tomcat9(credentialsId: 'Tomcat-Manager-Deploy', path: '', url: 'http://3.7.68.232:8080/')], contextPath: null, war: '/target/maven-web-application.war'
-                    }
+                    sh '''
+                    cd target
+                    ls
+                    '''
+                    // script{
+                    //     deploy adapters: [tomcat9(credentialsId: 'Tomcat-Manager-Deploy', path: '', url: 'http://3.7.68.232:8080/')], contextPath: null, war: '/target/maven-web-application.war'
+                    // }
                 }
             }
     }
